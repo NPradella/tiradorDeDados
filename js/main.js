@@ -13,6 +13,7 @@ function tirarD6(){
         }else{
             alert("su tirada fue un " + d6)
         }
+        return d6
 
 }
 
@@ -23,6 +24,7 @@ function tirarD8(){
     }else{
         alert("su tirada fue un " + d8)
     }
+    return d8
 }
 
 function tirarD10(){
@@ -32,6 +34,7 @@ function tirarD10(){
     }else{
         alert("su tirada fue un " + d10)
     }
+    return d10
 }
 
 function tirarD12(){
@@ -41,6 +44,7 @@ function tirarD12(){
     }else{
         alert("su tirada fue un " + d12)
     }
+    return d12
 }
 
 function tirarD20(){
@@ -50,6 +54,7 @@ function tirarD20(){
     }else{
         alert("su tirada fue un " + d20)
     }
+    return d20
 }
 
 function tirarD100(){
@@ -59,6 +64,7 @@ function tirarD100(){
     }else{
         alert("su tirada fue un " + d100)
     }
+    return d100
 }
 
 function tiradasDado(caras){
@@ -101,16 +107,82 @@ function tiradasDado(caras){
 }
 
 
-function cantidadDeTiradas(){
-    let cantidadTiradas = prompt("Ingrese la cantidad de tiradas que va a realizar: ");
 
+function tirarMuchosDados(){  
+    let sumatoria = 0;  
+    let cantidadTiradas = prompt("Ingrese la cantidad de tiradas que va a realizar: ");
     for (let i=0; i<cantidadTiradas; i+=1){
         console.log("tirada numero " + (i+1));
         let carasDado = prompt("Ingrese la cantidad de Caras que tiene el dado")
-        tiradasDado(carasDado)  
+        resultado = tiradasDado(carasDado)
+        sumatoria = sumatoria + resultado
+        console.log(sumatoria)
+}   
 }
+
+let personaje ={}
+
+let personaje1 = {
+    nombre: "Gandalf",
+    fuerza: 5,
+    destreza: 8,
+    inteligencia: 12
 }
 
+let personaje2 = {
+    nombre: "Legolas",
+    fuerza: 7,
+    destreza: 10,
+    inteligencia: 8
+}
 
+let personaje3 = {
+    nombre: "Gimli",
+    fuerza: 12,
+    destreza: 6,
+    inteligencia: 7,
+}
 
-cantidadDeTiradas()
+let party = [personaje1, personaje2, personaje3];
+
+function elegirPersonaje(nombrePj){
+    if(nombrePj==='Gandalf' ||nombrePj=== 'gandalf' ||nombrePj=== 'GANDALF'){
+        return personaje1
+    }else if(nombrePj==='Legolas'||nombrePj=== 'legolas' ||nombrePj=== 'LEGOLAS'){
+        return personaje2
+    }else if (nombrePj==='Gimli'||nombrePj=== 'GIMLI' ||nombrePj=== 'gimli'){
+        return personaje3
+    }else{
+        alert("Ese personaje no esta disponible.")
+    }
+    }
+
+function PersonajeSeleccionado(){
+    let nombreElegido = prompt("Ingresa el Personaje: ")
+    let personaje = elegirPersonaje(nombreElegido);
+    console.log("El personaje elegido fue " + personaje.nombre)
+    console.log("Sus estadisticas son: FUERZA: " + personaje.fuerza + "   DESTREZA:  " + personaje.destreza + "   e INTELIGENCIA: " + personaje.inteligencia)
+    return personaje
+}
+function presentarParty(arrayParty){
+    console.log("Nuestro grupo esta conformado por: ")
+    for(i=0; i<arrayParty.length; i+=1){
+            console.log(arrayParty[i].nombre)
+    }
+    }
+
+    function cambiarPersonaje(){
+        personaje= PersonajeSeleccionado()
+    }
+
+    function tirarConPJ(){
+        let tipoDado = prompt("Ingresa caras dado: ");
+        let stat = prompt("es una tirada de fuerza, inteligencia o destreza? " )
+        console.log(personaje.stat)
+        alert("Su tirada de " + stat + " fue de: " + (tiradasDado(tipoDado) + personaje.stat))
+    }
+
+    presentarParty(party)
+    personaje = PersonajeSeleccionado()
+    tirarConPJ()
+    tirarMuchosDados()

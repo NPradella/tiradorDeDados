@@ -1,3 +1,45 @@
+
 body{
-    background: blueviolet;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+    margin: 0;
+    background-repeat:no-repeat;
+    align-items: center;
+    box-sizing: border-box;
+    background-image: url(https://static.displate.com/857x1200/displate/2020-11-03/532805b21614ddd717934e95b1cf6366_df49cef9aa7328cd786695c2e02a935e.jpg);
+    background-position: top;
+    background-color: #1d1210;
 }
+
+header{
+    padding: 20px;
+    display: flex;
+    height: 100px;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #34332d;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-image: none;
+    padding-left: 100%;
+    padding-right: 100%;
+}
+
+.logo{
+    display: flex;
+    background-color: #34332d;
+    flex-wrap: initial;
+}
+
+.logo img{
+    height: 80px;
+    background-image: none;
+    background-color: #34332d;
+    }
+
+    header h1{
+        width: 300px;
+        color: #e3da8d;
+    }
