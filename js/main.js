@@ -3,6 +3,7 @@ function tirarD4(){
         alert("su tirada fue un " + d4)
         /* por lo general los d4 no se utilizan para acciones,
          por ende un 4 no se considera critico */
+
         return d4
 }
 
@@ -138,7 +139,7 @@ let personaje2 = {
 
 let personaje3 = {
     nombre: "Gimli",
-    fuerza: 12,
+    fuerza:  12,
     destreza: 6,
     inteligencia: 7,
 }
@@ -175,14 +176,18 @@ function presentarParty(arrayParty){
         personaje= PersonajeSeleccionado()
     }
 
-    function tirarConPJ(){
+    function tirarConPJ(personajeActual){
+        let resultadoTirada = 0;
+        console.log(personajeActual)
         let tipoDado = prompt("Ingresa caras dado: ");
         let stat = prompt("es una tirada de fuerza, inteligencia o destreza? " )
-        console.log(personaje.stat)
-        alert("Su tirada de " + stat + " fue de: " + (tiradasDado(tipoDado) + personaje.stat))
+        console.log(personajeActual.stat) //por alguna razon no me toma la caracteristica. Devuelve undefinded
+        resultadoTirada = tiradasDado(tipoDado)
+        console.log(resultadoTirada) // aca tambien me devuelve undefined, no se por que.
+        alert("Su tirada de " + stat + " fue de: " + ( resultadoTirada + personajeActual.stat))
     }
 
     presentarParty(party)
     personaje = PersonajeSeleccionado()
-    tirarConPJ()
-    tirarMuchosDados()
+    tirarConPJ(personaje)
+    //tirarMuchosDados()
