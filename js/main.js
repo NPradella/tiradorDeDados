@@ -4,7 +4,7 @@ function tirarD4(){
         /* por lo general los d4 no se utilizan para acciones,
          por ende un 4 no se considera critico */
 
-        return d4
+        return d4;
 }
 
 function tirarD6(){
@@ -14,7 +14,7 @@ function tirarD6(){
         }else{
             alert("su tirada fue un " + d6)
         }
-        return d6
+        return d6;
 
 }
 
@@ -25,7 +25,7 @@ function tirarD8(){
     }else{
         alert("su tirada fue un " + d8)
     }
-    return d8
+    return d8;
 }
 
 function tirarD10(){
@@ -35,7 +35,7 @@ function tirarD10(){
     }else{
         alert("su tirada fue un " + d10)
     }
-    return d10
+    return d10;
 }
 
 function tirarD12(){
@@ -45,7 +45,7 @@ function tirarD12(){
     }else{
         alert("su tirada fue un " + d12)
     }
-    return d12
+    return d12;
 }
 
 function tirarD20(){
@@ -55,7 +55,7 @@ function tirarD20(){
     }else{
         alert("su tirada fue un " + d20)
     }
-    return d20
+    return d20;
 }
 
 function tirarD100(){
@@ -65,7 +65,7 @@ function tirarD100(){
     }else{
         alert("su tirada fue un " + d100)
     }
-    return d100
+    return d100;
 }
 
 function tiradasDado(caras){
@@ -73,32 +73,66 @@ function tiradasDado(caras){
     switch(caras){
         case "4":
             
-            tirarD4()
-            break;
+            let d4 = Math.floor(Math.random() * (5 - 1) + 1)
+            alert("su tirada fue un " + d4)
+             /* por lo general los d4 no se utilizan para acciones,
+             por ende un 4 no se considera critico */
+
+            return d4;
         
         case "6":
-           tirarD6()
-            break;
+            let d6 = Math.floor(Math.random() * (7 - 1) + 1)
+            if(d6==6){
+                alert("Sacaste un 6! CRITICO!")
+            }else{
+                alert("su tirada fue un " + d6)
+            }
+            return d6;
 
         case "8":
-            tirarD8()
-            break;
+            let d8 = Math.floor(Math.random() * (9 - 1) + 1)
+            if(d8==8){
+                alert("Sacaste un 8! CRITICO!")
+            }else{
+                alert("su tirada fue un " + d8)
+             }
+             return d8;
 
         case "10":
-            tirarD10()
-            break;
+            let d10 = Math.floor(Math.random() * (11 - 1) + 1)
+            if(d10==10){
+                alert("Sacaste un 10! CRITICO!")
+            }else{
+                alert("su tirada fue un " + d10)
+            }
+             return d10;
 
         case "12":
-            tirarD12()
-           break;
+            let d12 = Math.floor(Math.random() * (13 - 1) + 1)
+            if(d12==12){
+                alert("Sacaste un 12! CRITICO!")
+             }else{
+                alert("su tirada fue un " + d12)
+            }
+        return d12;
 
         case "20":
-            tirarD20()
-            break;
+            let d20 = Math.floor(Math.random() * (21 - 1) + 1)
+             if(d20==20){
+                alert("Sacaste un 20! CRITICO!")
+            }else{
+                alert("su tirada fue un " + d20)
+            }
+        return d20;
 
         case "100":
-            tirarD100()
-           break;
+            let d100 = Math.floor(Math.random() * (101 - 1) + 1)
+            if(d100==100){
+                alert("Sacaste un 100! CRITICO!")
+            }else{
+                alert("su tirada fue un " + d100)
+            }
+            return d100;
 
             default:
                 alert("Los valores validos son 4, 6, 8, 10, 12, 20 y 100!")
@@ -121,23 +155,22 @@ function tirarMuchosDados(){
 }   
 }
 
-let personaje ={}
 
-let personaje1 = {
+const personaje1 = {
     nombre: "Gandalf",
     fuerza: 5,
     destreza: 8,
     inteligencia: 12
 }
 
-let personaje2 = {
+const personaje2 = {
     nombre: "Legolas",
     fuerza: 7,
     destreza: 10,
     inteligencia: 8
 }
 
-let personaje3 = {
+const personaje3 = {
     nombre: "Gimli",
     fuerza:  12,
     destreza: 6,
@@ -146,25 +179,10 @@ let personaje3 = {
 
 let party = [personaje1, personaje2, personaje3];
 
-function elegirPersonaje(nombrePj){
-    if(nombrePj==='Gandalf' ||nombrePj=== 'gandalf' ||nombrePj=== 'GANDALF'){
-        return personaje1
-    }else if(nombrePj==='Legolas'||nombrePj=== 'legolas' ||nombrePj=== 'LEGOLAS'){
-        return personaje2
-    }else if (nombrePj==='Gimli'||nombrePj=== 'GIMLI' ||nombrePj=== 'gimli'){
-        return personaje3
-    }else{
-        alert("Ese personaje no esta disponible.")
-    }
-    }
+let personaje = personaje1;
 
-function PersonajeSeleccionado(){
-    let nombreElegido = prompt("Ingresa el Personaje: ")
-    let personaje = elegirPersonaje(nombreElegido);
-    console.log("El personaje elegido fue " + personaje.nombre)
-    console.log("Sus estadisticas son: FUERZA: " + personaje.fuerza + "   DESTREZA:  " + personaje.destreza + "   e INTELIGENCIA: " + personaje.inteligencia)
-    return personaje
-}
+let tituloPers = document.querySelector(".personajeSelec")
+
 function presentarParty(arrayParty){
     console.log("Nuestro grupo esta conformado por: ")
     for(i=0; i<arrayParty.length; i+=1){
@@ -172,22 +190,56 @@ function presentarParty(arrayParty){
     }
     }
 
-    function cambiarPersonaje(){
-        personaje= PersonajeSeleccionado()
-    }
-
+   
     function tirarConPJ(personajeActual){
         let resultadoTirada = 0;
         console.log(personajeActual)
+        let stat = 0;
         let tipoDado = prompt("Ingresa caras dado: ");
-        let stat = prompt("es una tirada de fuerza, inteligencia o destreza? " )
-        console.log(personajeActual.stat) //por alguna razon no me toma la caracteristica. Devuelve undefinded
+        let statU = prompt("es una tirada de fuerza, inteligencia o destreza? " )
+            if(statU == "inteligencia"){
+                stat = personajeActual.inteligencia
+            }else if( statU == "destreza"){
+                stat = personajeActual.destreza
+            }else{
+                stat = personajeActual.fuerza
+            }
+        console.log(stat) //por alguna razon no me toma la caracteristica. Devuelve undefinded
         resultadoTirada = tiradasDado(tipoDado)
         console.log(resultadoTirada) // aca tambien me devuelve undefined, no se por que.
-        alert("Su tirada de " + stat + " fue de: " + ( resultadoTirada + personajeActual.stat))
+        alert("Su tirada de " + statU + " fue de: " + ( resultadoTirada + stat))    
     }
 
-    presentarParty(party)
-    personaje = PersonajeSeleccionado()
+let boton1 = document.getElementById("elegirGimli")
+boton1.addEventListener('click', function(){
+    personaje = personaje3
+    console.log("El personaje elegido fue " + personaje.nombre)
+    console.log("Sus estadisticas son: FUERZA: " + personaje.fuerza + "   DESTREZA:  " + personaje.destreza + "   e INTELIGENCIA: " + personaje.inteligencia)
+    tituloPers.textContent = 'PERSONAJE SELECCIONADO: GIMLI'
+})
+
+let boton2 = document.getElementById("elegirLegolas")
+boton2.addEventListener('click', function(){
+    personaje = personaje2
+    console.log("El personaje elegido fue " + personaje.nombre)
+    console.log("Sus estadisticas son: FUERZA: " + personaje.fuerza + "   DESTREZA:  " + personaje.destreza + "   e INTELIGENCIA: " + personaje.inteligencia)
+    tituloPers.textContent = 'PERSONAJE SELECCIONADO: LEGOLAS'
+}) 
+
+let boton3 = document.getElementById("elegirGandalf")
+boton3.addEventListener('click', function(){
+    personaje = personaje1
+    console.log("El personaje elegido fue " + personaje.nombre)
+    console.log("Sus estadisticas son: FUERZA: " + personaje.fuerza + "   DESTREZA:  " + personaje.destreza + "   e INTELIGENCIA: " + personaje.inteligencia)
+    tituloPers.textContent = 'PERSONAJE SELECCIONADO: GANDALF'
+})
+
+
+
+let boton4 = document.getElementById("tirarDados")
+boton4.addEventListener('click', function(){
     tirarConPJ(personaje)
+})
+    presentarParty(party)
+    //tirarConPJ(personaje)
     //tirarMuchosDados()
