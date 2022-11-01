@@ -1,6 +1,6 @@
 function tirarD4(){
     let d4 = Math.floor(Math.random() * (5 - 1) + 1)
-        alert("su tirada fue un " + d4)
+        console.log("su tirada fue un " + d4)
         /* por lo general los d4 no se utilizan para acciones,
          por ende un 4 no se considera critico */
 
@@ -10,9 +10,9 @@ function tirarD4(){
 function tirarD6(){
     let d6 = Math.floor(Math.random() * (7 - 1) + 1)
         if(d6==6){
-            alert("Sacaste un 6! CRITICO!")
+            console.log("Sacaste un 6! CRITICO!")
         }else{
-            alert("su tirada fue un " + d6)
+            console.log("su tirada fue un " + d6)
         }
         return d6;
 
@@ -21,9 +21,9 @@ function tirarD6(){
 function tirarD8(){
     let d8 = Math.floor(Math.random() * (9 - 1) + 1)
          if(d8==8){
-        alert("Sacaste un 8! CRITICO!")
+        console.log("Sacaste un 8! CRITICO!")
     }else{
-        alert("su tirada fue un " + d8)
+        console.log("su tirada fue un " + d8)
     }
     return d8;
 }
@@ -31,9 +31,9 @@ function tirarD8(){
 function tirarD10(){
     let d10 = Math.floor(Math.random() * (11 - 1) + 1)
     if(d10==10){
-        alert("Sacaste un 10! CRITICO!")
+        console.log("Sacaste un 10! CRITICO!")
     }else{
-        alert("su tirada fue un " + d10)
+        console.log("su tirada fue un " + d10)
     }
     return d10;
 }
@@ -41,9 +41,9 @@ function tirarD10(){
 function tirarD12(){
     let d12 = Math.floor(Math.random() * (13 - 1) + 1)
     if(d12==12){
-        alert("Sacaste un 12! CRITICO!")
+        console.log("Sacaste un 12! CRITICO!")
     }else{
-        alert("su tirada fue un " + d12)
+        console.log("su tirada fue un " + d12)
     }
     return d12;
 }
@@ -51,9 +51,9 @@ function tirarD12(){
 function tirarD20(){
     let d20 = Math.floor(Math.random() * (21 - 1) + 1)
     if(d20==20){
-        alert("Sacaste un 20! CRITICO!")
+        console.log("Sacaste un 20! CRITICO!")
     }else{
-        alert("su tirada fue un " + d20)
+        console.log("su tirada fue un " + d20)
     }
     return d20;
 }
@@ -61,9 +61,9 @@ function tirarD20(){
 function tirarD100(){
     let d100 = Math.floor(Math.random() * (101 - 1) + 1)
     if(d100==100){
-        alert("Sacaste un 100! CRITICO!")
+        console.log("Sacaste un 100! CRITICO!")
     }else{
-        alert("su tirada fue un " + d100)
+        console.log("su tirada fue un " + d100)
     }
     return d100;
 }
@@ -74,7 +74,7 @@ function tiradasDado(caras){
         case "4":
             
             let d4 = Math.floor(Math.random() * (5 - 1) + 1)
-            alert("su tirada fue un " + d4)
+            console.log("su tirada fue un " + d4)
              /* por lo general los d4 no se utilizan para acciones,
              por ende un 4 no se considera critico */
 
@@ -83,67 +83,66 @@ function tiradasDado(caras){
         case "6":
             let d6 = Math.floor(Math.random() * (7 - 1) + 1)
             if(d6==6){
-                alert("Sacaste un 6! CRITICO!")
+                console.log("Sacaste un 6! CRITICO!")
             }else{
-                alert("su tirada fue un " + d6)
+                console.log("su tirada fue un " + d6)
             }
             return d6;
 
         case "8":
             let d8 = Math.floor(Math.random() * (9 - 1) + 1)
             if(d8==8){
-                alert("Sacaste un 8! CRITICO!")
+                console.log("Sacaste un 8! CRITICO!")
             }else{
-                alert("su tirada fue un " + d8)
+                console.log("su tirada fue un " + d8)
              }
              return d8;
 
         case "10":
             let d10 = Math.floor(Math.random() * (11 - 1) + 1)
             if(d10==10){
-                alert("Sacaste un 10! CRITICO!")
+                console.log("Sacaste un 10! CRITICO!")
             }else{
-                alert("su tirada fue un " + d10)
+                console.log("su tirada fue un " + d10)
             }
              return d10;
 
         case "12":
             let d12 = Math.floor(Math.random() * (13 - 1) + 1)
             if(d12==12){
-                alert("Sacaste un 12! CRITICO!")
+                console.log("Sacaste un 12! CRITICO!")
              }else{
-                alert("su tirada fue un " + d12)
+                console.log("su tirada fue un " + d12)
             }
         return d12;
 
         case "20":
             let d20 = Math.floor(Math.random() * (21 - 1) + 1)
              if(d20==20){
-                alert("Sacaste un 20! CRITICO!")
+                console.log("Sacaste un 20! CRITICO!")
             }else{
-                alert("su tirada fue un " + d20)
+                console.log("su tirada fue un " + d20)
             }
         return d20;
 
         case "100":
             let d100 = Math.floor(Math.random() * (101 - 1) + 1)
             if(d100==100){
-                alert("Sacaste un 100! CRITICO!")
+                console.log("Sacaste un 100! CRITICO!")
             }else{
-                alert("su tirada fue un " + d100)
+                console.log("su tirada fue un " + d100)
             }
             return d100;
 
             default:
-                alert("Los valores validos son 4, 6, 8, 10, 12, 20 y 100!")
-                tiradasDado(prompt("Ingrese la cantidad de Caras que tiene el dado"))
+                console.log("Los valores validos son 4, 6, 8, 10, 12, 20 y 100!")
                 
     }
 }
 
 
 
-function tirarMuchosDados(){  
+/*function tirarMuchosDados(){  
     let sumatoria = 0;  
     let cantidadTiradas = prompt("Ingrese la cantidad de tiradas que va a realizar: ");
     for (let i=0; i<cantidadTiradas; i+=1){
@@ -153,7 +152,7 @@ function tirarMuchosDados(){
         sumatoria = sumatoria + resultado
         console.log(sumatoria)
 }   
-}
+}*/
 
 
 const personaje1 = {
@@ -190,13 +189,20 @@ function presentarParty(arrayParty){
     }
     }
 
-   
-    function tirarConPJ(personajeActual){
+   const formu = document.getElementById('formulario')
+   formu.addEventListener('submit', function(e){
+    e.preventDefault();
+    let charStat = document.getElementById('stat').value
+    let carasDelDado = document.getElementById('caraDado').value
+    console.log(charStat)
+    console.log(carasDelDado)
+   })
+
+   function tirarConPJ(personajeActual){
         let resultadoTirada = 0;
-        console.log(personajeActual)
         let stat = 0;
-        let tipoDado = prompt("Ingresa caras dado: ");
-        let statU = prompt("es una tirada de fuerza, inteligencia o destreza? " )
+        let tipoDado = document.getElementById('caraDado').value;
+        let statU = document.getElementById('stat').value;
             if(statU == "inteligencia"){
                 stat = personajeActual.inteligencia
             }else if( statU == "destreza"){
@@ -204,10 +210,8 @@ function presentarParty(arrayParty){
             }else{
                 stat = personajeActual.fuerza
             }
-        console.log(stat) //por alguna razon no me toma la caracteristica. Devuelve undefinded
         resultadoTirada = tiradasDado(tipoDado)
-        console.log(resultadoTirada) // aca tambien me devuelve undefined, no se por que.
-        alert("Su tirada de " + statU + " fue de: " + ( resultadoTirada + stat))    
+       console.log("Su tirada de " + statU + " fue de: " + ( resultadoTirada + stat))    
     }
 
 let boton1 = document.getElementById("elegirGimli")

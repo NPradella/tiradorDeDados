@@ -73,11 +73,12 @@ main{
 .fila1{
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
 }
 
 .container{
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: left;
     align-content: space-between;
     padding: 10px;
@@ -167,12 +168,21 @@ main{
         text-decoration: none;
       }
 
-h3{
+h3, h4{
     color: #e3da8d;
 }
 
 .fila2 {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+}
+
+.formulario{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     align-items: center;
 }
 .titulillo{
@@ -180,15 +190,10 @@ h3{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    position: absolute;
-    left: 1350px;
-    width: 500px;
 }
 .tirador{
     margin: 10px;
     align-items: center;
-    position: relative;
-    left: 1000px;
     width: 500px;
     background: #e3da8d;
   background-image: -webkit-linear-gradient(top, #e3da8d, #e3da8d);
