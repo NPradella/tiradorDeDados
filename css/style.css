@@ -220,3 +220,12 @@ h3, h4{
     background-image: linear-gradient(to bottom, #e97b20, #e97b20);
     text-decoration: none;
 }
+
+
+.lineaResultado{
+    width: 500px;
+    color: #000000;
+    font-size: 20px;
+    background: #e3da8d;
+    text-align: center;
+}

@@ -198,6 +198,9 @@ function presentarParty(arrayParty){
     console.log(carasDelDado)
    })
 
+
+   const resultArea = document.querySelector('.resultados');
+
    function tirarConPJ(personajeActual){
         let resultadoTirada = 0;
         let stat = 0;
@@ -211,7 +214,10 @@ function presentarParty(arrayParty){
                 stat = personajeActual.fuerza
             }
         resultadoTirada = tiradasDado(tipoDado)
-       console.log("Su tirada de " + statU + " fue de: " + ( resultadoTirada + stat))    
+        let textoFinal = ("Su tirada de " + statU + " fue de: " + ( resultadoTirada + stat));
+        resultArea.innerHTML +=
+        ` <p class="lineaResultado">${textoFinal}  <br> </p>
+        `
     }
 
 let boton1 = document.getElementById("elegirGimli")
