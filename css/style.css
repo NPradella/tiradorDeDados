@@ -1,3 +1,7 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 
 body{
     justify-content: space-between;
@@ -228,4 +232,11 @@ h3, h4{
     font-size: 20px;
     background: #e3da8d;
     text-align: center;
+    margin: 15px;
+}
+
+.resultados{
+    height: 500px;
+    overflow: hidden;
+    margin: 10px;
 }

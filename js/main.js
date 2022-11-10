@@ -176,6 +176,8 @@ const personaje3 = {
     inteligencia: 7,
 }
 
+let lista = [];
+
 let party = [personaje1, personaje2, personaje3];
 
 let personaje = personaje1;
@@ -201,6 +203,17 @@ function presentarParty(arrayParty){
 
    const resultArea = document.querySelector('.resultados');
 
+   function nuevoResultado(bloqueTexto){
+    const agregarTexto = 
+    `<p class="lineaResultado">${bloqueTexto}  <br> </p>
+    `
+   resultArea.insertAdjacentHTML("afterbegin", agregarTexto);
+    }
+
+    function agregarStorage(listado){
+        localStorage.setItem('LISTA', JSON.stringify(listado))
+    }
+
    function tirarConPJ(personajeActual){
         let resultadoTirada = 0;
         let stat = 0;
@@ -214,11 +227,31 @@ function presentarParty(arrayParty){
                 stat = personajeActual.fuerza
             }
         resultadoTirada = tiradasDado(tipoDado)
-        let textoFinal = ("Su tirada de " + statU + " fue de: " + ( resultadoTirada + stat));
-        resultArea.innerHTML +=
-        ` <p class="lineaResultado">${textoFinal}  <br> </p>
-        `
+        let textoFinal = ("Su tirada de " + statU + " con " + personajeActual.nombre + " fue de: " + ( resultadoTirada + stat));
+       
+        nuevoResultado(textoFinal)
+        if (lista.length<13){
+            lista.unshift(textoFinal)
+        }else{
+            lista.pop()
+            lista.unshift(textoFinal)
+        }
+        agregarStorage(lista)
     }
+
+    let data = localStorage.getItem('LISTA');
+    if(data){
+        lista = JSON.parse(data)
+       // console.log(lista)
+       lista = lista.reverse()
+       cargarLista(lista)
+    }
+
+    function cargarLista(DATA){
+        DATA.forEach(text => {nuevoResultado(text)}) 
+    }
+
+  
 
 let boton1 = document.getElementById("elegirGimli")
 boton1.addEventListener('click', function(){
