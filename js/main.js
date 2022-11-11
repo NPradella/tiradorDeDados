@@ -242,9 +242,44 @@ function presentarParty(arrayParty){
     let data = localStorage.getItem('LISTA');
     if(data){
         lista = JSON.parse(data)
-       // console.log(lista)
-       lista = lista.reverse()
-       cargarLista(lista)
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+              confirmButton: 'btn btn-success',
+              cancelButton: 'btn btn-danger'
+            },
+            buttonsStyling: false
+          })
+          
+          swalWithBootstrapButtons.fire({
+            title: 'Hay una sesión anterior guardada, querés comenzar una de 0?',
+            text: "No vas a ser capaz de revertirlo!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, borrar!',
+            cancelButtonText: 'No, dejarla!',
+            reverseButtons: true
+          }).then((result) => {
+            if (result.isConfirmed) {
+              swalWithBootstrapButtons.fire(
+                'Eliminado!',
+                'Comenzarás con un historial limpio',
+                'success'
+              )
+              lista = [];
+            } else if (
+              /* Read more about handling dismissals below */
+              result.dismiss === Swal.DismissReason.cancel
+            ) {
+              swalWithBootstrapButtons.fire(
+                'Cancelado!',
+                'Quedaron registradas tus últimas 10 tiradas!',
+                'error'
+              )
+                lista = lista.reverse()
+                cargarLista(lista)
+            }
+          })
+        
     }
 
     function cargarLista(DATA){
